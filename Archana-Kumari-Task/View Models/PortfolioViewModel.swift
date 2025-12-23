@@ -52,6 +52,34 @@ class PortfolioViewModel: ObservableObject {
                 await MainActor.run {
                     self.errorMessage = error.localizedDescription
                     self.isLoading = false
+                    
+                    if let cachedHoldings = self.repository.getCachedHoldings() {
+                        self.holdings = cachedHoldings
+                        self.calculateSummary()
+                    }
+                }
+            }
+        }
+    }
+    
+    func refreshHoldings() {
+        isLoading = true
+        errorMessage = nil
+        
+        Task {
+            do {
+                let fetchedHoldings = try await repository.refreshHoldings()
+                
+                await MainActor.run {
+                    self.holdings = fetchedHoldings
+                    self.calculateSummary()
+                    self.isLoading = false
+                }
+                
+            } catch {
+                await MainActor.run {
+                    self.errorMessage = error.localizedDescription
+                    self.isLoading = false
                 }
             }
         }

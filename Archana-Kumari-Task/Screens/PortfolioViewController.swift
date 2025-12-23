@@ -216,7 +216,7 @@ class PortfolioViewController: UIViewController {
     // MARK: - Actions
     
     @objc private func refreshData() {
-        viewModel.loadHoldings()
+        viewModel.refreshHoldings()
     }
     
     // MARK: - Helper Methods

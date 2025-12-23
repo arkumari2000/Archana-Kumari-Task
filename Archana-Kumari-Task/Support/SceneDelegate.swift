@@ -15,7 +15,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
 
         // Set the initial root view controller
-        let viewController = ViewController()
+        let viewController = PortfolioViewController()
         window?.rootViewController = viewController
         window?.makeKeyAndVisible()
     }

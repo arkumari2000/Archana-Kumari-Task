@@ -70,6 +70,10 @@ class PortfolioViewModel: ObservableObject {
         }
         portfolioSummary = PortfolioSummary(holdings: holdings)
     }
+    
+    func getCellViewModels() -> [HoldingsCellViewModel] {
+        return holdings.map { HoldingsCellViewModel(holding: $0) }
+    }
 }
 
 

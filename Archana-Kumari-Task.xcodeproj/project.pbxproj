@@ -1,0 +1,576 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXContainerItemProxy section */
+		4B0288632EFB150A00E9B8AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4B0288442EFB150800E9B8AC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4B02884B2EFB150800E9B8AC;
+			remoteInfo = "Archana-Kumari-Task";
+		};
+		4B02886D2EFB150A00E9B8AC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4B0288442EFB150800E9B8AC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4B02884B2EFB150800E9B8AC;
+			remoteInfo = "Archana-Kumari-Task";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4B02884C2EFB150800E9B8AC /* Archana-Kumari-Task.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Archana-Kumari-Task.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B0288622EFB150A00E9B8AC /* Archana-Kumari-TaskTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Archana-Kumari-TaskTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B02886C2EFB150A00E9B8AC /* Archana-Kumari-TaskUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Archana-Kumari-TaskUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		4B0288742EFB150A00E9B8AC /* Exceptions for "Archana-Kumari-Task" folder in "Archana-Kumari-Task" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 4B02884B2EFB150800E9B8AC /* Archana-Kumari-Task */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		4B02884E2EFB150800E9B8AC /* Archana-Kumari-Task */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				4B0288742EFB150A00E9B8AC /* Exceptions for "Archana-Kumari-Task" folder in "Archana-Kumari-Task" target */,
+			);
+			path = "Archana-Kumari-Task";
+			sourceTree = "<group>";
+		};
+		4B0288652EFB150A00E9B8AC /* Archana-Kumari-TaskTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "Archana-Kumari-TaskTests";
+			sourceTree = "<group>";
+		};
+		4B02886F2EFB150A00E9B8AC /* Archana-Kumari-TaskUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "Archana-Kumari-TaskUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4B0288492EFB150800E9B8AC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B02885F2EFB150A00E9B8AC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B0288692EFB150A00E9B8AC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4B0288432EFB150800E9B8AC = {
+			isa = PBXGroup;
+			children = (
+				4B02884E2EFB150800E9B8AC /* Archana-Kumari-Task */,
+				4B0288652EFB150A00E9B8AC /* Archana-Kumari-TaskTests */,
+				4B02886F2EFB150A00E9B8AC /* Archana-Kumari-TaskUITests */,
+				4B02884D2EFB150800E9B8AC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4B02884D2EFB150800E9B8AC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4B02884C2EFB150800E9B8AC /* Archana-Kumari-Task.app */,
+				4B0288622EFB150A00E9B8AC /* Archana-Kumari-TaskTests.xctest */,
+				4B02886C2EFB150A00E9B8AC /* Archana-Kumari-TaskUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4B02884B2EFB150800E9B8AC /* Archana-Kumari-Task */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4B0288752EFB150A00E9B8AC /* Build configuration list for PBXNativeTarget "Archana-Kumari-Task" */;
+			buildPhases = (
+				4B0288482EFB150800E9B8AC /* Sources */,
+				4B0288492EFB150800E9B8AC /* Frameworks */,
+				4B02884A2EFB150800E9B8AC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				4B02884E2EFB150800E9B8AC /* Archana-Kumari-Task */,
+			);
+			name = "Archana-Kumari-Task";
+			packageProductDependencies = (
+			);
+			productName = "Archana-Kumari-Task";
+			productReference = 4B02884C2EFB150800E9B8AC /* Archana-Kumari-Task.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4B0288612EFB150A00E9B8AC /* Archana-Kumari-TaskTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4B02887A2EFB150A00E9B8AC /* Build configuration list for PBXNativeTarget "Archana-Kumari-TaskTests" */;
+			buildPhases = (
+				4B02885E2EFB150A00E9B8AC /* Sources */,
+				4B02885F2EFB150A00E9B8AC /* Frameworks */,
+				4B0288602EFB150A00E9B8AC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4B0288642EFB150A00E9B8AC /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				4B0288652EFB150A00E9B8AC /* Archana-Kumari-TaskTests */,
+			);
+			name = "Archana-Kumari-TaskTests";
+			packageProductDependencies = (
+			);
+			productName = "Archana-Kumari-TaskTests";
+			productReference = 4B0288622EFB150A00E9B8AC /* Archana-Kumari-TaskTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		4B02886B2EFB150A00E9B8AC /* Archana-Kumari-TaskUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4B02887D2EFB150A00E9B8AC /* Build configuration list for PBXNativeTarget "Archana-Kumari-TaskUITests" */;
+			buildPhases = (
+				4B0288682EFB150A00E9B8AC /* Sources */,
+				4B0288692EFB150A00E9B8AC /* Frameworks */,
+				4B02886A2EFB150A00E9B8AC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4B02886E2EFB150A00E9B8AC /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				4B02886F2EFB150A00E9B8AC /* Archana-Kumari-TaskUITests */,
+			);
+			name = "Archana-Kumari-TaskUITests";
+			packageProductDependencies = (
+			);
+			productName = "Archana-Kumari-TaskUITests";
+			productReference = 4B02886C2EFB150A00E9B8AC /* Archana-Kumari-TaskUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4B0288442EFB150800E9B8AC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1640;
+				LastUpgradeCheck = 1640;
+				TargetAttributes = {
+					4B02884B2EFB150800E9B8AC = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					4B0288612EFB150A00E9B8AC = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = 4B02884B2EFB150800E9B8AC;
+					};
+					4B02886B2EFB150A00E9B8AC = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = 4B02884B2EFB150800E9B8AC;
+					};
+				};
+			};
+			buildConfigurationList = 4B0288472EFB150800E9B8AC /* Build configuration list for PBXProject "Archana-Kumari-Task" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4B0288432EFB150800E9B8AC;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 4B02884D2EFB150800E9B8AC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4B02884B2EFB150800E9B8AC /* Archana-Kumari-Task */,
+				4B0288612EFB150A00E9B8AC /* Archana-Kumari-TaskTests */,
+				4B02886B2EFB150A00E9B8AC /* Archana-Kumari-TaskUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4B02884A2EFB150800E9B8AC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B0288602EFB150A00E9B8AC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B02886A2EFB150A00E9B8AC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4B0288482EFB150800E9B8AC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B02885E2EFB150A00E9B8AC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B0288682EFB150A00E9B8AC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4B0288642EFB150A00E9B8AC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4B02884B2EFB150800E9B8AC /* Archana-Kumari-Task */;
+			targetProxy = 4B0288632EFB150A00E9B8AC /* PBXContainerItemProxy */;
+		};
+		4B02886E2EFB150A00E9B8AC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4B02884B2EFB150800E9B8AC /* Archana-Kumari-Task */;
+			targetProxy = 4B02886D2EFB150A00E9B8AC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		4B0288762EFB150A00E9B8AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P7KLWRJBMT;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Archana-Kumari-Task/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.archana.Archana-Kumari-Task";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4B0288772EFB150A00E9B8AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P7KLWRJBMT;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Archana-Kumari-Task/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.archana.Archana-Kumari-Task";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		4B0288782EFB150A00E9B8AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = P7KLWRJBMT;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4B0288792EFB150A00E9B8AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = P7KLWRJBMT;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4B02887B2EFB150A00E9B8AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P7KLWRJBMT;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.archana.Archana-Kumari-TaskTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Archana-Kumari-Task.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Archana-Kumari-Task";
+			};
+			name = Debug;
+		};
+		4B02887C2EFB150A00E9B8AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P7KLWRJBMT;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.archana.Archana-Kumari-TaskTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Archana-Kumari-Task.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Archana-Kumari-Task";
+			};
+			name = Release;
+		};
+		4B02887E2EFB150A00E9B8AC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P7KLWRJBMT;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.archana.Archana-Kumari-TaskUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Archana-Kumari-Task";
+			};
+			name = Debug;
+		};
+		4B02887F2EFB150A00E9B8AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = P7KLWRJBMT;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.archana.Archana-Kumari-TaskUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Archana-Kumari-Task";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4B0288472EFB150800E9B8AC /* Build configuration list for PBXProject "Archana-Kumari-Task" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4B0288782EFB150A00E9B8AC /* Debug */,
+				4B0288792EFB150A00E9B8AC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4B0288752EFB150A00E9B8AC /* Build configuration list for PBXNativeTarget "Archana-Kumari-Task" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4B0288762EFB150A00E9B8AC /* Debug */,
+				4B0288772EFB150A00E9B8AC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4B02887A2EFB150A00E9B8AC /* Build configuration list for PBXNativeTarget "Archana-Kumari-TaskTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4B02887B2EFB150A00E9B8AC /* Debug */,
+				4B02887C2EFB150A00E9B8AC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4B02887D2EFB150A00E9B8AC /* Build configuration list for PBXNativeTarget "Archana-Kumari-TaskUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4B02887E2EFB150A00E9B8AC /* Debug */,
+				4B02887F2EFB150A00E9B8AC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4B0288442EFB150800E9B8AC /* Project object */;
+}

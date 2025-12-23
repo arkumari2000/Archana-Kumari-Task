@@ -123,34 +123,28 @@ class PortfolioViewController: UIViewController {
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
         navigationController?.navigationBar.compactAppearance = appearance
-        
-        // Set title
-        title = "Portfolio"
-        
-        // Create profile icon button
-        let profileButton = UIBarButtonItem(
-            image: UIImage(systemName: "person.circle"),
-            style: .plain,
-            target: nil,
-            action: nil
+
+        title = nil
+
+        let profileButton = CustomUIBarButton.create(
+            icon: "person.circle",
+            text: "Portfolio",
+            iconColor: .white,
+            textColor: .white
         )
-        profileButton.tintColor = .white
         navigationItem.leftBarButtonItem = profileButton
         
-        // Create sort and search buttons
-        let sortButton = UIBarButtonItem(
-            image: UIImage(systemName: "arrow.up.arrow.down"),
-            style: .plain,
-            target: nil,
-            action: nil
+        let sortButton = UIBarButtonItem(image: UIImage(systemName: "arrow.up.arrow.down"),
+                                         style: .plain,
+                                         target: nil,
+                                         action: nil
         )
         sortButton.tintColor = .white
         
-        let searchButton = UIBarButtonItem(
-            image: UIImage(systemName: "magnifyingglass"),
-            style: .plain,
-            target: nil,
-            action: nil
+        let searchButton = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"),
+                                           style: .plain,
+                                           target: nil,
+                                           action: nil
         )
         searchButton.tintColor = .white
         

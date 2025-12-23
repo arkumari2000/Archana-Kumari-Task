@@ -153,4 +153,124 @@ final class PortfolioViewModelTests: XCTestCase {
         await fulfillment(of: [expectation], timeout: 2.0)
         XCTAssertNotNil(safeViewModel.errorMessage)
     }
+    
+    // MARK: - Refresh Tests
+    
+    func testRefreshHoldings() async {
+        // Given: Network service returns holdings
+        let mockHoldings = [
+            Holding(symbol: "REFRESHED", quantity: 10, ltp: 200.0, avgPrice: 180.0, close: 190.0)
+        ]
+        let mockResponse = APIResponse(data: PortfolioData(userHolding: mockHoldings))
+        safeMockNetworkService.shouldSucceed = true
+        safeMockNetworkService.mockResponse = mockResponse
+        
+        let expectation = expectation(description: "Holdings refreshed")
+        
+        // When: Refresh holdings
+        safeViewModel.$holdings
+            .dropFirst()
+            .sink { holdings in
+                if !holdings.isEmpty && holdings.first?.symbol == "REFRESHED" {
+                    expectation.fulfill()
+                }
+            }
+            .store(in: &cancellables!)
+        
+        safeViewModel.refreshHoldings()
+        
+        // Then: Should have refreshed holdings
+        await fulfillment(of: [expectation], timeout: 2.0)
+        XCTAssertEqual(safeViewModel.holdings.count, 1)
+        XCTAssertEqual(safeViewModel.holdings.first?.symbol, "REFRESHED")
+    }
+    
+    // MARK: - Cell View Models Tests
+    
+    func testGetCellViewModels() {
+        // Given: Holdings exist
+        let holdings = [
+            Holding(symbol: "HDFC", quantity: 7, ltp: 2497.20, avgPrice: 2800.00, close: 2500.00),
+            Holding(symbol: "ICICI", quantity: 1, ltp: 624.70, avgPrice: 500.00, close: 600.00)
+        ]
+        safeViewModel.holdings = holdings
+        
+        // When: Get cell view models
+        let cellViewModels = safeViewModel.getCellViewModels()
+        
+        // Then: Should return correct number of view models
+        XCTAssertEqual(cellViewModels.count, 2)
+        XCTAssertEqual(cellViewModels[0].symbol, "HDFC")
+        XCTAssertEqual(cellViewModels[1].symbol, "ICICI")
+    }
+    
+    func testGetCellViewModelsWithEmptyHoldings() {
+        // Given: No holdings
+        safeViewModel.holdings = []
+        
+        // When: Get cell view models
+        let cellViewModels = safeViewModel.getCellViewModels()
+        
+        // Then: Should return empty array
+        XCTAssertEqual(cellViewModels.count, 0)
+    }
+    
+    // MARK: - Summary Calculation Tests
+    
+    func testPortfolioSummaryCalculation() async {
+        // Given: Holdings loaded
+        let mockHoldings = [
+            Holding(symbol: "STOCK1", quantity: 10, ltp: 110.0, avgPrice: 100.0, close: 105.0),
+            Holding(symbol: "STOCK2", quantity: 5, ltp: 50.0, avgPrice: 60.0, close: 55.0)
+        ]
+        let mockResponse = APIResponse(data: PortfolioData(userHolding: mockHoldings))
+        safeMockNetworkService.shouldSucceed = true
+        safeMockNetworkService.mockResponse = mockResponse
+        
+        let expectation = expectation(description: "Summary calculated")
+        
+        // When: Observe summary
+        safeViewModel.$portfolioSummary
+            .dropFirst()
+            .sink { summary in
+                if summary != nil {
+                    expectation.fulfill()
+                }
+            }
+            .store(in: &cancellables!)
+        
+        safeViewModel.loadHoldings()
+        
+        // Then: Summary should be calculated
+        await fulfillment(of: [expectation], timeout: 2.0)
+        guard let summary = safeViewModel.portfolioSummary else {
+            XCTFail("Portfolio summary should not be nil")
+            return
+        }
+        
+        let expectedCurrentValue = (10 * 110.0) + (5 * 50.0)
+        let expectedTotalInvestment = (10 * 100.0) + (5 * 60.0)
+        
+        XCTAssertEqual(summary.currentValue, expectedCurrentValue, accuracy: 0.01)
+        XCTAssertEqual(summary.totalInvestment, expectedTotalInvestment, accuracy: 0.01)
+    }
+    
+    // MARK: - Expand/Collapse Tests
+    
+    func testToggleSummaryExpansion() {
+        // Given: Initial state is collapsed
+        XCTAssertFalse(safeViewModel.isSummaryExpanded)
+        
+        // When: Toggle expansion
+        safeViewModel.toggleSummaryExpansion()
+        
+        // Then: Should be expanded
+        XCTAssertTrue(safeViewModel.isSummaryExpanded)
+        
+        // When: Toggle again
+        safeViewModel.toggleSummaryExpansion()
+        
+        // Then: Should be collapsed
+        XCTAssertFalse(safeViewModel.isSummaryExpanded)
+    }
 }

@@ -12,8 +12,9 @@ class PortfolioViewController: UIViewController {
     
     // MARK: - Properties
     
-    private let viewModel: PortfolioViewModel
+    let viewModel: PortfolioViewModel
     private var cancellables = Set<AnyCancellable>()
+    private var sortButton: UIBarButtonItem?
     
     // MARK: - UI Components
     
@@ -49,6 +50,19 @@ class PortfolioViewController: UIViewController {
         return label
     }()
     
+    private let searchBar: UISearchBar = {
+        let searchBar = UISearchBar()
+        searchBar.placeholder = "Search by symbol..."
+        searchBar.searchBarStyle = .minimal
+        searchBar.showsCancelButton = true
+        searchBar.translatesAutoresizingMaskIntoConstraints = false
+        searchBar.isHidden = true
+        return searchBar
+    }()
+    
+    var isSearchActive: Bool = false
+    private var searchBarHeightConstraint: NSLayoutConstraint!
+    
     // MARK: - Initialization
     
     init(viewModel: PortfolioViewModel = PortfolioViewModel()) {
@@ -71,21 +85,35 @@ class PortfolioViewController: UIViewController {
         viewModel.loadHoldings()
     }
     
+    deinit {
+        // Cleanup Combine subscriptions
+        cancellables.removeAll()
+    }
+    
     // MARK: - Setup
     
     private func setupUI() {
         view.backgroundColor = .systemBackground
         
         // Add subviews
+        view.addSubview(searchBar)
         view.addSubview(tableView)
         view.addSubview(summaryView)
         view.addSubview(loadingIndicator)
         view.addSubview(errorLabel)
         
         // Setup constraints
+        searchBarHeightConstraint = searchBar.heightAnchor.constraint(equalToConstant: 0)
+        
         NSLayoutConstraint.activate([
+            // Search bar
+            searchBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            searchBar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            searchBar.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            searchBarHeightConstraint,
+            
             // Table view
-            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            tableView.topAnchor.constraint(equalTo: searchBar.bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: summaryView.topAnchor),
@@ -110,6 +138,9 @@ class PortfolioViewController: UIViewController {
         summaryView.onExpandCollapseTapped = { [weak self] in
             self?.viewModel.toggleSummaryExpansion()
         }
+        
+        // Setup search bar
+        searchBar.delegate = self
     }
     
     private func setupNavigationBar() {
@@ -123,9 +154,9 @@ class PortfolioViewController: UIViewController {
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
         navigationController?.navigationBar.compactAppearance = appearance
-
+        
         title = nil
-
+        
         let profileButton = CustomUIBarButton.create(
             icon: "person.circle",
             text: "Portfolio",
@@ -134,21 +165,24 @@ class PortfolioViewController: UIViewController {
         )
         navigationItem.leftBarButtonItem = profileButton
         
-        let sortButton = UIBarButtonItem(image: UIImage(systemName: "arrow.up.arrow.down"),
-                                         style: .plain,
-                                         target: nil,
-                                         action: nil
+        let sortBtn = UIBarButtonItem(
+            image: UIImage(systemName: "arrow.up.arrow.down"),
+            style: .plain,
+            target: self,
+            action: #selector(sortButtonTapped)
         )
-        sortButton.tintColor = .white
+        sortBtn.tintColor = .white
+        sortButton = sortBtn
         
-        let searchButton = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"),
-                                           style: .plain,
-                                           target: nil,
-                                           action: nil
+        let searchButton = UIBarButtonItem(
+            image: UIImage(systemName: "magnifyingglass"),
+            style: .plain,
+            target: self,
+            action: #selector(searchButtonTapped)
         )
         searchButton.tintColor = .white
         
-        navigationItem.rightBarButtonItems = [searchButton, sortButton]
+        navigationItem.rightBarButtonItems = [searchButton, sortBtn]
     }
     
     private func setupTableView() {
@@ -205,12 +239,21 @@ class PortfolioViewController: UIViewController {
                 self?.summaryView.setExpanded(isExpanded, animated: true)
             }
             .store(in: &cancellables)
+        
     }
     
     // MARK: - Actions
     
     @objc private func refreshData() {
         viewModel.refreshHoldings()
+    }
+    
+    @objc private func sortButtonTapped() {
+        viewModel.sortHoldings()
+    }
+    
+    @objc private func searchButtonTapped() {
+        toggleSearchBar()
     }
     
     // MARK: - Helper Methods
@@ -220,32 +263,25 @@ class PortfolioViewController: UIViewController {
             summaryView.configure(with: summary)
         }
     }
-}
-
-// MARK: - UITableViewDataSource
-
-extension PortfolioViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.holdings.count
-    }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "HoldingCell", for: indexPath) as! HoldingsTVC
+    func toggleSearchBar() {
+        isSearchActive.toggle()
         
-        let cellViewModels = viewModel.getCellViewModels()
-        if indexPath.row < cellViewModels.count {
-            cell.configure(with: cellViewModels[indexPath.row])
+        UIView.animate(withDuration: 0.3) {
+            if self.isSearchActive {
+                self.searchBar.isHidden = false
+                self.searchBarHeightConstraint.constant = 56
+                self.searchBar.becomeFirstResponder()
+            } else {
+                self.searchBar.resignFirstResponder()
+                self.searchBarHeightConstraint.constant = 0
+                self.viewModel.clearSearch()
+            }
+            self.view.layoutIfNeeded()
+        } completion: { _ in
+            if !self.isSearchActive {
+                self.searchBar.isHidden = true
+            }
         }
-        
-        return cell
     }
 }
-
-// MARK: - UITableViewDelegate
-
-extension PortfolioViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80 // Adjust based on your design
-    }
-}
-

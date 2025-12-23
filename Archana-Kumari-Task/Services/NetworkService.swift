@@ -30,7 +30,7 @@ enum NetworkError: LocalizedError {
     }
 }
 
-final class NetworkService {
+class NetworkService {
 
     static let shared = NetworkService()
     private let session: URLSession

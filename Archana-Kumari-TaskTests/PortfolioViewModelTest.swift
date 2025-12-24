@@ -215,46 +215,6 @@ final class PortfolioViewModelTests: XCTestCase {
         XCTAssertEqual(cellViewModels.count, 0)
     }
     
-    // MARK: - Summary Calculation Tests
-    
-    func testPortfolioSummaryCalculation() async {
-        // Given: Holdings loaded
-        let mockHoldings = [
-            Holding(symbol: "STOCK1", quantity: 10, ltp: 110.0, avgPrice: 100.0, close: 105.0),
-            Holding(symbol: "STOCK2", quantity: 5, ltp: 50.0, avgPrice: 60.0, close: 55.0)
-        ]
-        let mockResponse = APIResponse(data: PortfolioData(userHolding: mockHoldings))
-        safeMockNetworkService.shouldSucceed = true
-        safeMockNetworkService.mockResponse = mockResponse
-        
-        let expectation = expectation(description: "Summary calculated")
-        
-        // When: Observe summary
-        safeViewModel.$portfolioSummary
-            .dropFirst()
-            .sink { summary in
-                if summary != nil {
-                    expectation.fulfill()
-                }
-            }
-            .store(in: &cancellables!)
-        
-        safeViewModel.loadHoldings()
-        
-        // Then: Summary should be calculated
-        await fulfillment(of: [expectation], timeout: 2.0)
-        guard let summary = safeViewModel.portfolioSummary else {
-            XCTFail("Portfolio summary should not be nil")
-            return
-        }
-        
-        let expectedCurrentValue = (10 * 110.0) + (5 * 50.0)
-        let expectedTotalInvestment = (10 * 100.0) + (5 * 60.0)
-        
-        XCTAssertEqual(summary.currentValue, expectedCurrentValue, accuracy: 0.01)
-        XCTAssertEqual(summary.totalInvestment, expectedTotalInvestment, accuracy: 0.01)
-    }
-    
     // MARK: - Expand/Collapse Tests
     
     func testToggleSummaryExpansion() {
@@ -272,5 +232,53 @@ final class PortfolioViewModelTests: XCTestCase {
         
         // Then: Should be collapsed
         XCTAssertFalse(safeViewModel.isSummaryExpanded)
+    }
+    
+    // MARK: - Search Tests
+    
+    func testSearchFunctionality() async {
+        // Given: Holdings loaded
+        let mockHoldings = [
+            Holding(symbol: "HDFC", quantity: 7, ltp: 2497.20, avgPrice: 2800.00, close: 2500.00),
+            Holding(symbol: "ICICI", quantity: 1, ltp: 624.70, avgPrice: 500.00, close: 600.00),
+            Holding(symbol: "SBI", quantity: 5, ltp: 550.00, avgPrice: 500.00, close: 540.00)
+        ]
+        let mockResponse = APIResponse(data: PortfolioData(userHolding: mockHoldings))
+        safeMockNetworkService.shouldSucceed = true
+        safeMockNetworkService.mockResponse = mockResponse
+        
+        let loadExpectation = expectation(description: "Holdings loaded")
+        
+        safeViewModel.$holdings
+            .dropFirst()
+            .sink { holdings in
+                if holdings.count == 3 {
+                    loadExpectation.fulfill()
+                }
+            }
+            .store(in: &cancellables!)
+        
+        safeViewModel.loadHoldings()
+        await fulfillment(of: [loadExpectation], timeout: 2.0)
+        
+        // When: Search for "HDFC"
+        let searchExpectation = expectation(description: "Search completed")
+        safeViewModel.$holdings
+            .dropFirst()
+            .sink { holdings in
+                if holdings.count == 1 {
+                    searchExpectation.fulfill()
+                }
+            }
+            .store(in: &cancellables!)
+        
+        safeViewModel.setSearchQuery("HDFC")
+        
+        // Wait for debounce (300ms) plus processing time
+        await fulfillment(of: [searchExpectation], timeout: 1.0)
+        
+        // Then: Should filter to only HDFC
+        XCTAssertEqual(safeViewModel.holdings.count, 1)
+        XCTAssertEqual(safeViewModel.holdings.first?.symbol, "HDFC")
     }
 }

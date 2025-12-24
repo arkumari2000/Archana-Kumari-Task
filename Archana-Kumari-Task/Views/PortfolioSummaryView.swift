@@ -122,13 +122,19 @@ class PortfolioSummaryView: UIView {
             // Stack view
             stackView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
             stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16)
+            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16)
         ])
         
+        // Bottom constraint with lower priority to avoid conflict when height is 0
+        let stackViewBottomConstraint = stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16)
+        stackViewBottomConstraint.priority = UILayoutPriority(750) // Lower priority
+        stackViewBottomConstraint.isActive = true
+        
+        // Store height constraint separately
         contentViewHeightConstraint = contentView.heightAnchor.constraint(equalToConstant: 0)
-        contentViewHeightConstraint.isActive = true
-
+        contentViewHeightConstraint.isActive = true // Start collapsed
+        
+        // Initially collapsed
         contentView.isHidden = true
     }
     

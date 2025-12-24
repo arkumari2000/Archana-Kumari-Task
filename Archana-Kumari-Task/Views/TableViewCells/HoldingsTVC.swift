@@ -129,12 +129,13 @@ class HoldingsTVC: UITableViewCell {
             ltpLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12),
             ltpLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
             
-            // P&L section - right side, below LTP
-            pnlPrefixLabel.topAnchor.constraint(equalTo: ltpLabel.bottomAnchor, constant: 8),
-            pnlPrefixLabel.trailingAnchor.constraint(equalTo: profitLossLabel.leadingAnchor, constant: -8),
-            
             profitLossLabel.topAnchor.constraint(equalTo: ltpLabel.bottomAnchor, constant: 8),
             profitLossLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            profitLossLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -12),
+            
+            // P&L section - right side, below LTP
+            pnlPrefixLabel.topAnchor.constraint(equalTo: ltpLabel.bottomAnchor, constant: 16),
+            pnlPrefixLabel.trailingAnchor.constraint(equalTo: profitLossLabel.leadingAnchor, constant: -8),
             profitLossLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -12)
         ])
     }
